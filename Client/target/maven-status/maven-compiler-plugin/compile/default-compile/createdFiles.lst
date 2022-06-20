@@ -1,0 +1,9 @@
+com\service\client\controller\MusicController.class
+com\service\client\service\MusicService.class
+com\service\client\ServletInitializer.class
+com\service\client\BaseReponse\BaseReponse.class
+com\service\client\constrant\ApiURL.class
+com\service\client\mapper\FileMapper.class
+com\service\client\App.class
+com\service\client\model\MpFile.class
+com\service\client\serviceImpl\MusicServiceImpl.class

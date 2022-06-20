@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.service.admin.mapper.ManagerMusicMapper">
+		<insert id="uploadFile">
+				INSERT INTO data_mp  (nameFile,typeFile,data,imgFile)
+				VALUES (#{nameFile},#{typeFile},#{data},#{imgFile})
+		</insert>
+		
+		<select id="getAll" resultType="com.service.admin.model.MpFile"
+			parameterType="com.service.admin.model.MpFileRequest">
+			SELECT id,nameFile,imgFile,data FROM data_mp
+		</select>
+		
+		<select id="getMusic" resultType="com.service.admin.model.MpFile"
+			parameterType="Integer">
+			SELECT id,nameFile,imgFile,data FROM data_mp
+			WHERE id = #{id}
+		</select>
+		
+</mapper>

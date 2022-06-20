@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.service.client.mapper.FileMapper">
+
+	<select id="getList" resultType="com.service.client.model.MpFile"
+		parameterType="com.service.client.model.MpFile">
+	<![CDATA[
+		{call sp_pageMusic(#{page},#{limit})}
+	]]>	
+	</select>
+
+	<insert id="save">
+			<![CDATA[
+			INSERT INTO data_mp
+			(nameFile,typeFile,data)
+			VALUES
+			(#{nameFile},#{typeFile},#{data})
+		]]>
+	</insert>
+	
+	<select id="getData" resultType="com.service.client.model.MpFile" parameterType="Integer" >
+		<![CDATA[
+			SELECT id,nameFile,data,imgFile FROM data_mp
+			WHERE  id = #{id}
+		]]>
+	</select>
+	
+	<select id="getMusic" resultType="com.service.client.model.MpFile"
+			parameterType="Integer">
+			<![CDATA[
+			SELECT id,nameFile,imgFile,data FROM data_mp
+			WHERE  id = #{id}
+			]]>
+	</select>
+	
+	<select id="countMusic" resultType="Integer">
+			<![CDATA[
+			SELECT COUNT(*) FROM  data_mp
+			]]>
+	</select>
+	
+
+</mapper>
